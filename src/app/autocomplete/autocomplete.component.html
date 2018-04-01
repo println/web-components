@@ -1,0 +1,22 @@
+<tj-autocomplete [(ngModel)]="country" [suggestions]="filteredCountriesSingle" (completeMethod)="filterCountrySingle($event)"
+    field="name" [size]="30" placeholder="Countries" [minLength]="4" [minKeyLength]="1" [filter]="true">
+    <ng-template let-country inputTemplate>
+        {{country.id}} -$- {{country.name}}
+    </ng-template>
+</tj-autocomplete>
+
+<button (click)="setCountry()">Novo país</button>
+
+<span style="margin-left:10px">Country: {{country ? country.name||country : 'none'}}</span>
+<br>
+<br>
+
+<div class="row">
+    <div class="col-md-3">
+        <input class="ui-inputtext ui-widget ui-state-default ui-corner-all ui-fluid" style="display:block; height:30px; padding: 2px 4px 2px 6px;"
+            type="date" name="myBirthday" [(ngModel)]="event.releaseDate" useValueAsDate>
+    </div>
+    <div class="col-md-9">
+        <pre>{{ event | json }}</pre>
+    </div>
+</div>
