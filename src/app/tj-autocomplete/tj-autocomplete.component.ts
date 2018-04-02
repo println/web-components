@@ -112,7 +112,10 @@ export class TjAutocompleteComponent implements ControlValueAccessor {
     }
 
     onCompleteMethod(event) {
-        if (!this.hasMinLengthCondition(event.query)) { return; }
+        if (!this.hasMinLengthCondition(event.query)) {             
+            this.suggestions = [];//remove o icone de carregamento do input
+            return;
+        }
         if (this.filterService.canFilter(event.query)) {
             this.filterService.filter(event.query);
             return;
@@ -221,7 +224,6 @@ export class TjAutocompleteComponent implements ControlValueAccessor {
             if (query.length >= this.minLength) {
                 return true;
             }
-            this.suggestions = [];//remove o icone de carregamento do input
         }
         return false;
     }
